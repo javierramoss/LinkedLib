@@ -80,17 +80,17 @@ public:
     T pop() {
         T value = undefined;
         if (_size == 1) {
-            value = _head->value;
-            delete _head;
+            value = _tail->value;
+            delete _tail;
             _head = _tail = nullptr;
             _size--;
         }
         else if (_size > 1) {
-            value = _head->value;
-            Node<T>* newhead = _head->next;
-            delete _head;
-            _head = newhead;
-            _head->prev = nullptr;
+            value = _tail->value;
+            Node<T>* newTail = _tail->prev;
+            delete _tail;
+            _tail = newTail;
+            _tail->next = nullptr;
             _size--;
         }
         return value;
