@@ -10,11 +10,30 @@ private:
 
 public:
     T top() const {
-        return LinkedList<T>::head();
+        return this->head();
     }
 
     T back() const {
-        return LinkedList<T>::tail();
+        return this->tail();
+    }
+
+    T pop() {
+        T value = this->undefined;
+        if (this->_size == 1) {
+            value = this->_head->value;
+            delete this->_head;
+            this->_head = this->_tail = nullptr;
+            this->_size--;
+        }
+        else if (this->_size > 1) {
+            value = this->_head->value;
+            Node<T>* newHead = this->_head->next;
+            delete this->_head;
+            this->_head = newHead;
+            this->_head->prev = nullptr;
+            this->_size--;
+        }
+        return value;
     }
 
 };
