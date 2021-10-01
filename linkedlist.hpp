@@ -5,17 +5,29 @@
 
 template<typename T>
 class LinkedList {
+protected:
+    Node<T>* _head;
+    Node<T>* _tail;
+    T undefined;
+    int _size;
+
     friend std::ostream& operator<<(std::ostream& out, const LinkedList<T>& linkedlist) {
         for (Node<T>* temp = linkedlist._head; temp != nullptr; temp = temp->next)
             out << temp->value << "\n";
         return out;
     }
 
-protected:
-    Node<T>* _head;
-    Node<T>* _tail;
-    T undefined;
-    int _size;
+    T head() const {
+        if (_size > 0)
+            return _head->value;
+        return undefined;
+    }
+
+    T tail() const {
+        if (_size > 0)
+            return _tail->value;
+        return undefined;
+    }
 
 public:
     //default constructor
@@ -65,19 +77,7 @@ public:
         return _size;
     }
 
-    T head() const {
-        if (_size > 0)
-            return _head->value;
-        return undefined;
-    }
-
-    T tail() const {
-        if (_size > 0)
-            return _tail->value;
-        return undefined;
-    }
-
-    T pop() {
+    virtual T pop() {
         T value = undefined;
         if (_size == 1) {
             value = _tail->value;
