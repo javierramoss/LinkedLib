@@ -10,11 +10,11 @@ private:
 
 public:
     T top() const {
-        return this->head();
+        return this->tail();
     }
 
     T back() const {
-        return this->tail();
+        return this->head();
     }
 
 };
