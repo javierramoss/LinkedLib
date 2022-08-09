@@ -4,7 +4,7 @@ LinkedLib is a easy to use header-only library for data structures based on Link
 ## Setup
 1. Clone the repo:
 ```
-git clone https://github.com/BigBeakPenguin/LinkedLib.git
+git clone https://github.com/javierramoss/LinkedLib.git
 ```
 2. Copy the contents under your project's directory:
 3. Compile the headers along your project's files accordingly.
